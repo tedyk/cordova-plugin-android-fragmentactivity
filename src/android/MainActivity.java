@@ -17,7 +17,9 @@
        under the License.
  */
 
-package com.webileapps.fragments;
+package ${mypackage};
+
+/** extends CordovaActivity */
 
 import android.app.FragmentTransaction;
 import android.graphics.Color;
@@ -29,7 +31,7 @@ public class MainActivity extends FragmentActivity
 {
     private static final String TAG = "MainActivity";
 
-    public CordovaFragment currentFragment;
+    public uk.co.reallysmall.cordova.plugin.fragment.CordovaFragment currentFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -37,12 +39,7 @@ public class MainActivity extends FragmentActivity
 
         super.onCreate(savedInstanceState);
 
-        //Set status bar color
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(Color.BLACK);
-        }
-
-        currentFragment = new CordovaFragment();
+        currentFragment = new uk.co.reallysmall.cordova.plugin.fragment.CordovaFragment();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.add(android.R.id.content, currentFragment);
         ft.commit();

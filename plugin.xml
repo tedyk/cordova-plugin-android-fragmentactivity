@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-           id="cordova-android-fragments"
-      version="0.1.0">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-android-fragmentactivity" version="0.0.1">
 
-    <name>Cordova Android Fragments</name>
-    <description>An android plugin that provides a replacement activity to the default activity to start a cordova application with MainActivity as a Fragment Activity. Useful when you want to add native views on top of cordova webview.</description>
-    <keywords>cordova, fragment, fragments</keywords>
-    <platform name="android">
+  <name>Cordova Android FragmentActivity Plugin</name>
+  <description>An android plugin that provides a replacement activity to the default activity to start a cordova application with MainActivity as a Fragment Activity. Useful when you want to add native views on top of cordova webview.</description>
+  <keywords>cordova, fragment, fragments</keywords>
+  <platform name="android">
 
-        <framework src="com.android.support:appcompat-v7:18.0.+" />
-        <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="CordovaFragments">
-                <param name="android-package" value="com.webileapps.fragments"/>
-            </feature>
-        </config-file>
+    <framework src="com.android.support:appcompat-v7:18.0.+"/>
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="CordovaFragments">
+        <param name="android-package" value="uk.co.reallysmall.cordova.plugin.fragment"/>
+      </feature>
+    </config-file>
 
-        <source-file src="src/android/MainActivity.java" target-dir="src/com/webileapps/fragments" />
-        <source-file src="src/android/CordovaFragment.java" target-dir="src/com/webileapps/fragments" />
-        
-    </platform>
+    <source-file src="src/android/uk/co/reallysmall/cordova/plugin/fragment/CordovaFragment.java" target-dir="src/uk/co/reallysmall/cordova/plugin/fragment"/>
+
+    <hook type="after_plugin_install" src="scripts/afterPluginInstall.js"/>
+
+  </platform>
 </plugin>
