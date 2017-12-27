@@ -15,7 +15,7 @@
 
     <source-file src="src/android/uk/co/reallysmall/cordova/plugin/fragment/CordovaFragment.java" target-dir="src/uk/co/reallysmall/cordova/plugin/fragment"/>
 
-    <hook type="after_plugin_install" src="scripts/afterPluginInstall.js"/>
+    <hook type="after_plugin_install" src="scripts/android/afterPluginInstall.js"/>
 
   </platform>
 </plugin>
