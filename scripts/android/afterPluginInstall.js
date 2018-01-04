@@ -34,13 +34,8 @@ module.exports = function(context) {
 
       console.log(newActivityPath);
 
-      fs.writeFile(newActivityPath, newActivity, function(err) {
-        if (err) {
-          return console.log(err);
-        }
-
-        console.log("New MainActvity generated.");
-      });
+      fs.writeFileSync(newActivityPath, newActivity);
+      console.log("New MainActivity generated.");
     });
   }
 };

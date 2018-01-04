@@ -23,3 +23,15 @@ AndroidManifest.xml is automatically updated to use the new MainActivity.
 Credits
 ==
 Based on cordova-android-fragments (https://github.com/rajivnarayana/CordovaFragments)
+
+History
+==
+
+0.0.2
+--
+- Correct log message
+- Add history to README
+
+0.0.1
+--
+Initial release
