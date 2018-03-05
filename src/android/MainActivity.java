@@ -44,4 +44,10 @@ public class MainActivity extends FragmentActivity
         ft.add(android.R.id.content, currentFragment);
         ft.commit();
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[],
+                                            int[] grantResults) {
+        currentFragment.onRequestPermissionsResult(requestCode,permissions,grantResults);
+    }
 }
