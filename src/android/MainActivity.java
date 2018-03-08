@@ -17,7 +17,7 @@
        under the License.
  */
 
-package ${mypackage};
+package uk.co.reallysmall.leaveyouregosatthedoor;
 
 /** extends CordovaActivity */
 
@@ -43,6 +43,51 @@ public class MainActivity extends FragmentActivity
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.add(android.R.id.content, currentFragment);
         ft.commit();
+    }
+
+    /**
+     * Called when the system is about to start resuming a previous activity.
+     */
+    @Override
+    protected void onPause() {
+        super.onPause();
+        currentFragment.onPause();
+    }
+
+    /**
+     * Called when the activity will start interacting with the user.
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        currentFragment.onResume();
+    }
+
+    /**
+     * Called when the activity is no longer visible to the user.
+     */
+    @Override
+    protected void onStop() {
+        super.onStop();
+        currentFragment.onStop();
+    }
+
+    /**
+     * Called when the activity is becoming visible to the user.
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        currentFragment.onStart();
+    }
+
+    /**
+     * The final call you receive before your activity is destroyed.
+     */
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        currentFragment.onDestroy();
     }
 
     @Override

@@ -5,6 +5,7 @@
 const fs = require('fs');
 const _ = require('lodash');
 const xml2js = require('xml2js');
+const utilities = require("../lib/utilities");
 
 String.prototype.replaceAll = function(search, replacement) {
   var target = this;
@@ -12,30 +13,35 @@ String.prototype.replaceAll = function(search, replacement) {
 };
 
 module.exports = function(context) {
-  const parseString = xml2js.parseString;
-  const builder = new xml2js.Builder();
-  const manifestPath = context.opts.projectRoot + '/platforms/android/AndroidManifest.xml';
-  const androidManifest = fs.readFileSync(manifestPath).toString();
 
-  const activityPath = context.opts.projectRoot + '/plugins/cordova-plugin-android-fragmentactivity/src/android/MainActivity.java';
-  const activity = fs.readFileSync(activityPath).toString();
+  var androidManifestPath = utilities.getAndroidManifestPath(context);
 
-  let manifestRoot, packageName, newActivity, newActivityPath;
+  if (androidManifestPath !== null) {
+    const parseString = xml2js.parseString;
+    const builder = new xml2js.Builder();
+    const manifestPath = androidManifestPath + '/AndroidManifest.xml';
+    const androidManifest = fs.readFileSync(manifestPath).toString();
 
-  if (androidManifest) {
-    parseString(androidManifest, (err, manifest) => {
-      if (err) return console.error(err);
+    const activityPath = context.opts.projectRoot + '/plugins/cordova-plugin-android-fragmentactivity/src/android/MainActivity.java';
+    const activity = fs.readFileSync(activityPath).toString();
 
-      manifestRoot = manifest['manifest'];
-      packageName = manifestRoot['$']['package'];
+    let manifestRoot, packageName, newActivity, newActivityPath;
 
-      newActivity = activity.replace('${mypackage}', packageName);
-      newActivityPath = 'platforms/android/src/' + packageName.replaceAll("\\.", "/") + '/MainActivity.java';
+    if (androidManifest) {
+      parseString(androidManifest, (err, manifest) => {
+        if (err) return console.error(err);
 
-      console.log(newActivityPath);
+        manifestRoot = manifest['manifest'];
+        packageName = manifestRoot['$']['package'];
 
-      fs.writeFileSync(newActivityPath, newActivity);
-      console.log("New MainActivity generated.");
-    });
+        newActivity = activity.replace('${mypackage}', packageName);
+        newActivityPath = utilities.getAndroidSourcePath(context) + "/" + packageName.replaceAll("\\.", "/") + '/MainActivity.java';
+
+        console.log(newActivityPath);
+
+        fs.writeFileSync(newActivityPath, newActivity);
+        console.log("New MainActivity generated.");
+      });
+    }
   }
 };

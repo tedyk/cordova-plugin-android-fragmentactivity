@@ -21,6 +21,10 @@ AndroidManifest.xml is automatically updated to use the new MainActivity.
 Based on cordova-android-fragments (https://github.com/rajivnarayana/CordovaFragments)
 
 # History
+## 0.0.4
+- Experimental support for cordova-android 7
+- Increased dependency versions
+
 ## 0.0.3
 - Added missing method to activity to handle permission request results
 
