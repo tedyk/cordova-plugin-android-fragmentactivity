@@ -317,15 +317,17 @@ public class CordovaFragment extends Fragment {
     /**
      * The final call you receive before your activity is destroyed.
      */
-    @Override
-    public void onDestroy() {
-        LOG.d(TAG, "CordovaActivity.onDestroy()");
-        super.onDestroy();
+     @Override
+     public void onDestroy() {
+         LOG.d(TAG, "CordovaActivity.onDestroy()");
+         if (getActivity() != null) {
+             super.onDestroy();
+         }
 
-        if (this.appView != null) {
-            appView.handleDestroy();
-        }
-    }
+         if (this.appView != null) {
+             appView.handleDestroy();
+         }
+     }
 
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {
