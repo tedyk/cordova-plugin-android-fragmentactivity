@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-android-fragmentactivity",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "An android plugin that provides a replacement activity to the default activity to start a cordova application with MainActivity as a Fragment Activity. Useful when you want to add native views on top of cordova webview.",
   "cordova": {
     "id": "cordova-plugin-android-fragmentactivity",

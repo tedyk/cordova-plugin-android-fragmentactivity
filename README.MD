@@ -21,6 +21,9 @@ AndroidManifest.xml is automatically updated to use the new MainActivity.
 Based on cordova-android-fragments (https://github.com/rajivnarayana/CordovaFragments)
 
 # History
+## 0.0.6
+- Fix stupid cordova-android 7 detection
+
 ## 0.0.5
 - Attempt to avoid crash only seen on Galaxy J1 Ace (5.1.1)
 
