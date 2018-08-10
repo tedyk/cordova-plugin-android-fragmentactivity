@@ -17,7 +17,7 @@
        under the License.
  */
 
-package uk.co.reallysmall.leaveyouregosatthedoor;
+package ${mypackage};
 
 /** extends CordovaActivity */
 
