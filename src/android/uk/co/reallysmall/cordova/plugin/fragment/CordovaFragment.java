@@ -119,7 +119,9 @@ public class CordovaFragment extends Fragment {
     }
 
     public void setContentView(View contentView) {
-        this.contentView = contentView;
+        FrameLayout frame = new FrameLayout(this.getActivity().getBaseContext());
+        frame.addView(contentView);
+        this.contentView = frame;
     }
 
     @Override
