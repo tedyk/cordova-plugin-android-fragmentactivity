@@ -21,6 +21,10 @@ AndroidManifest.xml is automatically updated to use the new MainActivity.
 Based on cordova-android-fragments (https://github.com/rajivnarayana/CordovaFragments)
 
 # History
+## 0.0.7
+- Merge FrameLayout change
+- Merge ${mypackage} fix
+
 ## 0.0.6
 - Fix stupid cordova-android 7 detection
 
