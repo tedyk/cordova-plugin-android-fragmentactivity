@@ -325,9 +325,13 @@ public class CordovaFragment extends Fragment {
          if (getActivity() != null) {
              super.onDestroy();
          }
-
-         if (this.appView != null) {
-             appView.handleDestroy();
+         try {
+            if (this.appView != null) {
+                appView.handleDestroy();
+            }
+         }
+         catch(Exception e) {
+            LOG.d(TAG, "CordovaActivity.onDestroy() Exception"); 
          }
      }
 
