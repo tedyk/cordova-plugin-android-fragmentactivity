@@ -271,6 +271,21 @@ public class CordovaFragment extends Fragment {
     }
 
     /**
+     * Called when the activity will stop interacting with the user.
+     */
+    @Override
+    public void onPause() {
+        super.onPause();
+        LOG.d(TAG, "Paused the activity.");
+
+        if (this.appView == null) {
+            return;
+        }
+
+        this.appView.handlePause(this.keepRunning);
+    }    
+
+    /**
      * Called when the activity will start interacting with the user.
      */
     @Override
